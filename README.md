@@ -27,4 +27,4 @@ docker run -it --rm -p 8000:80 --name wsexample_test wsexample
 The API can be accessed through `http://localhost:8000/weatherforecast`
 
 ## Notes
-* Testing automated builds in Docker Hub
+* Testing automated builds in Docker Hub.
