@@ -21,7 +21,7 @@ docker create wsexample
 
 ## Run the example
 ```
-docker run -it --rm -p 8000:80 --name wsexample_test6 wsexample
+docker run -it --rm -p 8000:80 --name wsexample_test wsexample
 ```
 
 The API can be accessed through `http://localhost:8000/weatherforecast`
