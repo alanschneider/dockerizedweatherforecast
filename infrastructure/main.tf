@@ -128,9 +128,8 @@ resource "aws_instance" "web" {
   # communicate with the resource (instance)
   connection {
     type = "ssh"
-    user = "ec2-user"
+    user = "ubuntu"
     host = self.public_ip
-    # host_key = var.aws_public_key
     private_key = var.aws_private_key
   }
 
@@ -139,7 +138,7 @@ resource "aws_instance" "web" {
   key_name      = aws_key_pair.auth.key_name
 
   # Our Security group to allow HTTP and SSH access
-  security_groups = [ aws_security_group.default.name ]
+  vpc_security_group_ids = [ aws_security_group.default.id ]
 
   # We're going to launch into the same subnet as our ELB. In a production
   # environment it's more common to have a separate private subnet for
