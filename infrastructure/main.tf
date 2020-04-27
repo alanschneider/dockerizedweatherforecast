@@ -127,10 +127,11 @@ resource "aws_instance" "web" {
   # The connection block tells our provisioner how to
   # communicate with the resource (instance)
   connection {
-    # The default username for our AMI
-    user = "ubuntu"
+    type = "ssh"
+    user = "ec2-user"
     host = self.public_ip
-    # The connection will use the local SSH agent for authentication.
+    # host_key = var.aws_public_key
+    private_key = var.aws_private_key
   }
 
   instance_type = var.aws_instance_type

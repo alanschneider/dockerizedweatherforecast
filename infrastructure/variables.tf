@@ -14,6 +14,10 @@ variable "aws_public_key" {
   type = string
 }
 
+variable "aws_private_key" {
+  type = string
+}
+
 variable "aws_instance_type" {
   type = string
 }
