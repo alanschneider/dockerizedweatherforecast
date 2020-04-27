@@ -126,18 +126,16 @@ resource "aws_key_pair" "auth" {
 resource "aws_instance" "web" {
   # The connection block tells our provisioner how to
   # communicate with the resource (instance)
-  #connection {
+  connection {
     # The default username for our AMI
-  #  user = "ubuntu"
-  #  host = self.public_ip
+    user = "ubuntu"
+    host = self.public_ip
     # The connection will use the local SSH agent for authentication.
-  #}
-  
+  }
+
   instance_type = var.aws_instance_type
   ami           = var.aws_ami
-
-  # The name of our SSH keypair we created above.
-  key_name = aws_key_pair.auth.id
+  key_name      = aws_key_pair.auth.key_name
 
   # Our Security group to allow HTTP and SSH access
   vpc_security_group_ids = [ aws_security_group.default.id ]
