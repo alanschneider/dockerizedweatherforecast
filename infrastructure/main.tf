@@ -139,7 +139,7 @@ resource "aws_instance" "web" {
   key_name      = aws_key_pair.auth.key_name
 
   # Our Security group to allow HTTP and SSH access
-  vpc_security_group_ids = [ aws_security_group.default.id ]
+  security_groups = [ aws_security_group.default.name ]
 
   # We're going to launch into the same subnet as our ELB. In a production
   # environment it's more common to have a separate private subnet for
