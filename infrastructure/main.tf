@@ -40,12 +40,12 @@ resource "aws_security_group" "elb" {
   }
 
   # HTTPS access from anywhere
-  ingress {
-    from_port   = 443
-    to_port     = 443
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
+#  ingress {
+#    from_port   = 443
+#    to_port     = 443
+#    protocol    = "tcp"
+#    cidr_blocks = ["0.0.0.0/0"]
+#  }
 
   # outbound internet access
   egress {
@@ -80,12 +80,12 @@ resource "aws_security_group" "default" {
   }
 
   # HTTPS access from the VPC
-  ingress {
-    from_port   = 443
-    to_port     = 443
-    protocol    = "tcp"
-    cidr_blocks = ["10.0.0.0/16"]
-  }
+#  ingress {
+#    from_port   = 443
+#    to_port     = 443
+#    protocol    = "tcp"
+#    cidr_blocks = ["10.0.0.0/16"]
+#  }
 
   # outbound internet access
   egress {
@@ -110,12 +110,12 @@ resource "aws_elb" "web" {
     lb_protocol       = "http"
   }
 
-  listener {
-    instance_port     = 443
-    instance_protocol = "https"
-    lb_port           = 443
-    lb_protocol       = "https"
-  }
+#  listener {
+#    instance_port     = 443
+#    instance_protocol = "https"
+#    lb_port           = 443
+#    lb_protocol       = "https"
+#  }
 }
 
 resource "aws_key_pair" "auth" {
